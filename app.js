@@ -28,6 +28,10 @@ var orderStalks;
 
 app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));
 
+app.get('/', async(req,res)=> {
+  res.send('working');
+});
+
 // Accepts POST requests at /webhook endpoint
 app.post("/webhook", async (req, res) => {
   // Parse the request body from the POST
