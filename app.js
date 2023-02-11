@@ -14,7 +14,6 @@ const request = require("request"),
   axios = require("axios").default,
   app = express().use(body_parser.json()), // creates express http server
   stripe = require("stripe")(process.env.STRIPE_TEST);
-//idk why not working.
 
 let data;
 let stage = "Begin-Response";
@@ -29,6 +28,7 @@ var orderStalks;
 app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));
 
 app.get("/", (req, res) => {
+  console.log(token);
   res.send("complete");
 });
 
