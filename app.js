@@ -28,7 +28,10 @@ var orderStalks;
 app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));
 
 app.get("/", (req, res) => {
+  const verify_token = process.env.VERIFY_TOKEN;
+
   console.log(token);
+  console.log(verify_token);
   res.send("complete");
 });
 
