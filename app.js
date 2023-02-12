@@ -91,7 +91,7 @@ app.get("/webhook", (req, res) => {
   /**
    * UPDATE YOUR VERIFY TOKEN
    *This will be the Verify Token value when you set up webhook
-   **/
+  **/
   const verify_token = process.env.VERIFY_TOKEN;
 
   // Parse params from the webhook verification request
@@ -105,8 +105,7 @@ app.get("/webhook", (req, res) => {
     if (mode === "subscribe" && token === verify_token) {
       // Respond with 200 OK and challenge token from the request
       console.log("WEBHOOK_VERIFIED");
-      console.log(challenge, token, mode);
-      res.sendStatus(200);
+      res.status(200).send(challenge);
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
       res.sendStatus(403);
